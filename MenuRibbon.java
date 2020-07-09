@@ -97,6 +97,7 @@ public class MenuRibbon extends JMenuBar implements ActionListener {
 
              case "Exit":
                  System.out.println("Exit");
+                 System.exit(0);
 
                 // break;
             case "Plain":
