@@ -132,8 +132,8 @@ public class MenuRibbon extends JMenuBar implements ActionListener {
 
         
         JLabel infoLabel = new JLabel("<html>" 
-                +"<h3> Version :  1.1v </h3>"
-                +"<h3>  Published Data : 23 May 2020 </h3>"
+                +"<h3> Version :  1.2v </h3>"
+                +"<h3>  Published Data : 9 July 2020 </h3>"
                 +"<h3> Description : </h3> " 
                 +"<p>" + info + "</p>" 
                 +"<br><h3> Developer : Badal (BCA 4th Semester) </h3>"

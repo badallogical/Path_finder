@@ -26,16 +26,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="580859d1-5448-4fb4-a41c-d24b55807ac5" name="Default Changelist" comment="file handling support open and save successfully">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_07_20,_12_14_PM_[Default_Changelist]/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_07_20,_12_14_PM_[Default_Changelist]/test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Path_finder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Path_finder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RoundJButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/RoundJButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Path_finder/source/Path_finder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Path_finder/source/Path_finder$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Path_finder/source/Path_finder$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Path_finder/source/Path_finder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Path_finder/source/Path_finder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Path_finder/source/util/RoundJButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Path_finder/source/util/RoundJButton.class" afterDir="false" />
-    </list>
+    <list default="true" id="580859d1-5448-4fb4-a41c-d24b55807ac5" name="Default Changelist" comment="removed login feature." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594303161458</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="removed login feature.">
+      <created>1594305929993</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1594305929993</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,7 +131,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adding file_handling" />
     <MESSAGE value="file handling support open and save successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="file handling support open and save successfully" />
+    <MESSAGE value="removed login feature." />
+    <option name="LAST_COMMIT_MESSAGE" value="removed login feature." />
   </component>
   <component name="WindowStateProjectService">
     <state x="141" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593582417112">
@@ -144,22 +143,22 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="911" y="64" width="374" height="588" key="#com.intellij.ide.util.MemberChooser/0.27.1366.741@0.27.1366.741" timestamp="1594293749833" />
-    <state width="1322" height="164" key="GridCell.Tab.0.bottom" timestamp="1594305600542">
+    <state width="1322" height="164" key="GridCell.Tab.0.bottom" timestamp="1594305830794">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1322" height="164" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1594305600542" />
-    <state width="1322" height="164" key="GridCell.Tab.0.center" timestamp="1594305600541">
+    <state width="1322" height="164" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1594305830794" />
+    <state width="1322" height="164" key="GridCell.Tab.0.center" timestamp="1594305830792">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1322" height="164" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1594305600541" />
-    <state width="1322" height="164" key="GridCell.Tab.0.left" timestamp="1594305600541">
+    <state width="1322" height="164" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1594305830792" />
+    <state width="1322" height="164" key="GridCell.Tab.0.left" timestamp="1594305830792">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1322" height="164" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1594305600541" />
-    <state width="1322" height="164" key="GridCell.Tab.0.right" timestamp="1594305600542">
+    <state width="1322" height="164" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1594305830792" />
+    <state width="1322" height="164" key="GridCell.Tab.0.right" timestamp="1594305830793">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1322" height="164" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1594305600542" />
+    <state width="1322" height="164" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1594305830793" />
     <state width="1322" height="250" key="GridCell.Tab.1.bottom" timestamp="1594298506762">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
