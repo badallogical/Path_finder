@@ -1,9 +1,10 @@
 package source;
 
 import java.awt.*;
+import java.io.Serializable;
 
 // helper class
-public class Path {
+public class Path  implements Serializable{
     public static int path_style = 0;
     public static final int plain_style = 0;
     public static final int dashed_style = 1;

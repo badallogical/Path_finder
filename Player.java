@@ -39,7 +39,7 @@ class Player extends JPanel {
                 reset();
 
                 if (playState) {
-                    // paused
+                    // paused-
                     playState = false;
                     JButton b = (JButton) e.getSource();
                     b.setIcon(Node.resizeIcon(playIcon, 40, 40));

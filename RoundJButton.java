@@ -7,9 +7,11 @@ import javax.swing.*;
 import java.awt.event.*;
 
 
-
 public class RoundJButton extends JButton{
-   
+
+    Color visitedColor = null;
+    Color defaultColor = null;
+
     public RoundJButton( String val) {
         setText(val);
         setOpaque(false); // As suggested by @AVD in comment.
@@ -25,10 +27,28 @@ public class RoundJButton extends JButton{
                 }
             }
         });
+
+        addMouseListener( new MouseAdapter(){
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                visitedColor = new Color(200,200,200,150);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e){
+                super.mouseExited(e);
+                visitedColor = null;
+            }
+
+        });
     }
 
     protected void paintComponent(Graphics g) {
-         g.setColor(getBackground());
+         if( defaultColor == null )
+             defaultColor = getBackground();
+         g.setColor(( visitedColor == null) ? defaultColor : visitedColor );
          g.fillRoundRect(0, 0, getWidth()-1, getHeight()-1, 50, 50);
          super.paintComponent(g);
     }

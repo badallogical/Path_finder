@@ -15,23 +15,25 @@ import java.awt.image.*;
 import javax.imageio.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.*;
 
 // Representation of Map
-public class RoadMap extends JPanel {
+public class RoadMap extends JPanel implements Serializable {
+
     static Dimension size;
 
     Vector<Node> nodes;
     Vector<Vector<Path>> graph;
 
-    int selected_node = -1;
-    int highlight_node = -1;
+    transient int selected_node = -1;
+    transient int highlight_node = -1;
 
     static Color current_path_color;
     static String currentAlgo = null;
 
     // control variable
-    static boolean active = false;
+    public static boolean active = false;
 
     // running algo thread
     static Thread runningAlgo;
@@ -228,6 +230,24 @@ public class RoadMap extends JPanel {
         setVisible(true);
     }
 
+
+    public void reload(){
+
+        // refresh nodes
+        Node.node_count = 0;
+        for( Node node : nodes ){
+            this.add( node );
+            node.setIcon( new ImageIcon(NodeAssets.icon1));
+            node.setBounds( node.getX(), node.getY(), node.getWidth(), node.getHeight());
+            node.setVisible(true);
+            node.updateUI();
+            Node.node_count++;
+        }
+
+        // refresh graph
+        repaint();
+    }
+
     // find the distance of two nodes
     private int find_distance(Node i, Node t) {
         return (int) Math.sqrt(Math.pow(Math.abs(t.getX() - i.getX()), 2) + Math.pow(Math.abs(t.getY() - i.getY()), 2));
@@ -386,7 +406,7 @@ public class RoadMap extends JPanel {
 
     }
 
-    void highlight_node() {
+    public void highlight_node() {
 
         // highlight
         if (highlight_node >= 0) {
@@ -396,18 +416,22 @@ public class RoadMap extends JPanel {
         }
     }
 
-    void selected_node() {
+    public void selected_node() {
         // selection
         if (selected_node >= 0) {
             nodes.get(selected_node).setIcon(new ImageIcon(NodeAssets.icon3));
         }
     }
 
-    Vector<Node> getNodes() {
+    public Vector<Node> getNodes() {
         return nodes;
     }
 
-    void showGraph() {
+    public Vector<Vector<Path>> getGraph(){
+        return graph;
+    }
+
+    public void showGraph() {
         for (int i = 0; i < Node.node_count; i++) {
             System.out.println("Node " + i + ":->");
             Iterator it = graph.get(i).iterator();
@@ -417,13 +441,14 @@ public class RoadMap extends JPanel {
         }
     }
 
-    void reset() {
+    public void reset() {
        
         current_path_color = new Color(50, 50, 50, 150);
         graph = new Vector<Vector<Path>>();
         runningAlgo = null;
         selected_node = -1;
         highlight_node = -1;
+        currentAlgo = null;
 
         // reset algos
         Player.reset();
@@ -433,6 +458,14 @@ public class RoadMap extends JPanel {
         nodes = new Vector<Node>();
 
         repaint();
+    }
+
+    public void setGraph(Vector<Vector<Path>> graph ){
+        this.graph = graph;
+    }
+
+    public void setNodes( Vector<Node> nodes ){
+        this.nodes = nodes;
     }
 
     // TODO : reseting map

@@ -1,6 +1,9 @@
 package source;
 
+
+
 import source.util.*;
+
 import java.awt.event.*;
 import javax.swing.border.*;
 import java.awt.Color;
@@ -39,7 +42,7 @@ public class Login extends JPanel {
         user_field.setBounds(offset + 100 , offset + 50, 200, 30);
         user_field.setFont( new Font("Arial", Font.BOLD, 15));
 
-        add( passwd_field);
+        add( passwd_field );
         passwd_field.setBounds(offset + 100, offset + 50*2 , 200 , 30);
         passwd_field.setFont( new Font("Arial", Font.BOLD, 15));
 
@@ -50,6 +53,7 @@ public class Login extends JPanel {
         add( register_link );
         register_link.setBounds(offset + 200, offset + 50 * 6, 150, 30);
         register_link.setFont( new Font("Arial", Font.BOLD, 10) );
+
 
         //setBorder( BorderFactory.createLineBorder(Color.BLUE));
         setLayout( null );
@@ -70,9 +74,6 @@ public class Login extends JPanel {
         
         ((Graphics2D)g).fillRoundRect(offset, offset, (int)size.getWidth() - 2 * offset, (int)size.getHeight() - 2 * offset, 50, 50);
     }
-
-    
-    
 }
 
 

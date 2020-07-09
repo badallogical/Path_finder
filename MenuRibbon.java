@@ -1,5 +1,7 @@
 package source;
 
+import source.util.FileHandler;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -16,10 +18,8 @@ import java.util.*;
 public class MenuRibbon extends JMenuBar implements ActionListener {
 
     // File menu
-    // JMenu file;
-    // JMenuItem New, Save, exit;
-
-    // JMenu edit;
+     JMenu file;
+     JMenuItem Open, Save, exit;
 
     // help menu
     JMenu help;
@@ -32,12 +32,13 @@ public class MenuRibbon extends JMenuBar implements ActionListener {
 
     public MenuRibbon() {
         // initialize
-        // file = new JMenu("File");
-        // New = new JMenuItem("New");
-        // Save = new JMenuItem("Save");
-        // exit = new JMenuItem("Exit");
+         file = new JMenu("File");
+         Open = new JMenuItem("Open");
+         Save = new JMenuItem("Save");
+         exit = new JMenuItem("Exit");
 
-        // edit = new JMenu("Edit");
+
+
 
         help = new JMenu("Help");
         about = new JMenuItem("About");
@@ -48,9 +49,13 @@ public class MenuRibbon extends JMenuBar implements ActionListener {
         dashed = new JMenuItem("Dashed");
 
         // event listeners
-        // New.addActionListener(this);
-        // Save.addActionListener(this);
-        // exit.addActionListener(this);
+        Open.addActionListener(this);
+        Save.addActionListener(this);
+        exit.addActionListener(this);
+
+        // mode
+
+
         // about
         about.addActionListener(this);
         
@@ -60,9 +65,9 @@ public class MenuRibbon extends JMenuBar implements ActionListener {
 
 
         // configuration
-        // file.add(New);
-        // file.add(Save);
-        // file.add(exit);
+        file.add(Open);
+        file.add(Save);
+        file.add(exit);
 
         setting.add(path_style);
         path_style.add(plain);
@@ -73,21 +78,25 @@ public class MenuRibbon extends JMenuBar implements ActionListener {
         
         
 
-        // this.add(file);
+        this.add(file);
         // this.add(edit);
         this.add(help);
     }
 
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
-            // case "New":
-            //     System.out.println("New");
-            //     break;
-            // case "Save":
-            //     System.out.println("Save");
-            //     break;
-            // case "Exit":
-            //     System.out.println("Exit");
+             case "Open":
+                 System.out.println("Open");
+                 FileHandler.openFile();
+                 break;
+
+             case "Save":
+                 System.out.println("Save");
+                 FileHandler.saveFile();
+                 break;
+
+             case "Exit":
+                 System.out.println("Exit");
 
                 // break;
             case "Plain":

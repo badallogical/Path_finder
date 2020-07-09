@@ -17,7 +17,7 @@ public class Path_finder extends JFrame {
     public static Path_finder ref;
 
     // components
-    static RoadMap map;
+    public static RoadMap map;
     NavBar navigaionBar;
     MenuRibbon menuBar;
     ControlPallette controlPallete;
@@ -27,7 +27,7 @@ public class Path_finder extends JFrame {
 
     public Path_finder(int width, int height) {
 
-        // initialize
+        // Initialize
         size = new Dimension(width, height);
         map = new RoadMap();
         navigaionBar = new NavBar();
@@ -36,16 +36,14 @@ public class Path_finder extends JFrame {
         ref = this;
         login = new Login();
         
-       
 
-        // configurations
+        // Configurations
         setResizable(false);
-        setTitle("Path_Finder");
+        setTitle("Path Finder");
         setSize(width, height);
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);     
-        
+        setVisible(true);
     }
 
     private void login(){
