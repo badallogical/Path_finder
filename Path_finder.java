@@ -23,8 +23,9 @@ public class Path_finder extends JFrame {
     ControlPallette controlPallete;
 
     //login dashboard
-    Login login;
+    //Login login;
 
+    // Path_finder setup
     public Path_finder(int width, int height) {
 
         // Initialize
@@ -34,7 +35,15 @@ public class Path_finder extends JFrame {
         menuBar = new MenuRibbon();
         controlPallete = new ControlPallette();
         ref = this;
-        login = new Login();
+        //login = new Login();
+
+        // add components
+        setJMenuBar(menuBar);
+        map.setLocation(0, (int) navigaionBar.size.getHeight());
+        navigaionBar.setLocation(0, 0);
+        add(map);
+        add(navigaionBar);
+        add(controlPallete);
         
 
         // Configurations
@@ -46,10 +55,10 @@ public class Path_finder extends JFrame {
         setVisible(true);
     }
 
-    private void login(){
-        add( login );
-        login.setLocation((int)(size.getWidth()/2 - login.size.getWidth()/2), (int)(size.getHeight()/2 - login.size.getHeight()/2 - 50));
-   
+//    private void login(){
+//        add( login );
+//        login.setLocation((int)(size.getWidth()/2 - login.size.getWidth()/2), (int)(size.getHeight()/2 - login.size.getHeight()/2 - 50));
+//
         // Thread login_thread = new Thread( new Runnable(){
         //     public void run(){
         //         // login user
@@ -67,53 +76,54 @@ public class Path_finder extends JFrame {
         // login_thread.start();
     
             
-        SwingWorker sw = new SwingWorker(){
-            @Override
-            protected String doInBackground() throws Exception{
-                while( !Login.login_hit ){
-                   Thread.sleep(10);
-                   System.out.println(Login.login_hit);
-                }
-               
-                return String.valueOf(Login.login_hit);
-            }
+//        SwingWorker sw = new SwingWorker(){
+//            @Override
+//            protected String doInBackground() throws Exception{
+//                while( !Login.login_hit ){
+//                   Thread.sleep(10);
+//                   System.out.println(Login.login_hit);
+//                }
+//
+//                return String.valueOf(Login.login_hit);
+//            }
+//
+//            @Override
+//            protected void done(){
+//                if( Login.login_hit == true ){
+//                System.out.println("done is called");
+//                sign_in();
+//                }
+//            }
+//        };
+//
+//        sw.execute();
+//    }
 
-            @Override
-            protected void done(){
-                if( Login.login_hit == true ){
-                System.out.println("done is called");
-                sign_in();
-                }
-            } 
-        };
+//    private void sign_in(){
+//        System.out.println("sing is king");
+//
+//           login.setVisible(false);
+//           login.updateUI();
+//
+//           // add components
+//           setJMenuBar(menuBar);
+//           map.setLocation(0, (int) navigaionBar.size.getHeight());
+//           navigaionBar.setLocation(0, 0);
+//           add(map);
+//           add(navigaionBar);
+//           add(controlPallete);
+//
+//           map.updateUI();
+//           navigaionBar.updateUI();
+//           controlPallete.updateUI();
+//    }
 
-        sw.execute();
-    }
-
-    private void sign_in(){
-        System.out.println("sing is king");
-
-           login.setVisible(false);
-           login.updateUI();
-
-           // add components
-           setJMenuBar(menuBar);
-           map.setLocation(0, (int) navigaionBar.size.getHeight());
-           navigaionBar.setLocation(0, 0);
-           add(map);
-           add(navigaionBar);
-           add(controlPallete);
-
-           map.updateUI();
-           navigaionBar.updateUI();
-           controlPallete.updateUI();
-    }
-
+    // driver code
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 Path_finder app = new Path_finder(800, 600);
-                app.login();
+                //app.login();
             }
         });
     }

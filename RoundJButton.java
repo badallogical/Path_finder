@@ -16,11 +16,11 @@ public class RoundJButton extends JButton{
         setText(val);
         setOpaque(false); // As suggested by @AVD in comment.
         setContentAreaFilled(false);
-        setFocusPainted(true);
+        setFocusPainted(false);
         
         addActionListener( new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                
+                // TODO: make proper login system
                 if( e.getActionCommand().equals("Login")){
                     System.out.println("Login :" + Login.login_hit );    
                     Login.login_hit = true;
