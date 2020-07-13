@@ -1,0 +1,186 @@
+Index: Path_finder.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package source;\n\nimport java.awt.*;\nimport java.awt.event.*;\nimport javax.swing.*;\n\nimport javax.swing.border.*;\n\nimport java.awt.image.*;\nimport javax.imageio.*;\nimport java.io.File;\nimport java.io.IOException;\nimport java.util.*;\n\npublic class Path_finder extends JFrame {\n\tpublic static Dimension size;\n    public static Path_finder ref;\n\n    // components\n    public static RoadMap map;\n    NavBar navigaionBar;\n    MenuRibbon menuBar;\n    ControlPallette controlPallete;\n\n    //login dashboard\n    //Login login;\n\n    // Path_finder setup\n    public Path_finder(int width, int height) {\n\n        // Initialize\n        size = new Dimension(width, height);\n        map = new RoadMap();\n        navigaionBar = new NavBar();\n        menuBar = new MenuRibbon();\n        controlPallete = new ControlPallette();\n        ref = this;\n        //login = new Login();\n\n        // add components\n        setJMenuBar(menuBar);\n        map.setLocation(0, (int) navigaionBar.size.getHeight());\n        navigaionBar.setLocation(0, 0);\n        add(map);\n        add(navigaionBar);\n        add(controlPallete);\n        \n\n        // Configurations\n        setResizable(false);\n        setTitle(\"Path Finder\");\n        setSize(width, height);\n        setLayout(null);\n        setDefaultCloseOperation(EXIT_ON_CLOSE);\n        setVisible(true);\n    }\n\n//    private void login(){\n//        add( login );\n//        login.setLocation((int)(size.getWidth()/2 - login.size.getWidth()/2), (int)(size.getHeight()/2 - login.size.getHeight()/2 - 50));\n//\n        // Thread login_thread = new Thread( new Runnable(){\n        //     public void run(){\n        //         // login user\n        //         while( Login.login_pass != true ){\n        //             //System.out.println(\" \");\n        //         }\n\n        //         System.out.println(\"sign in successfull\");\n        //         ref.sign_in();\n                \n        //         login.setVisible(false);\n        //         login.updateUI();\n        //     }\n        // });\n        // login_thread.start();\n    \n            \n//        SwingWorker sw = new SwingWorker(){\n//            @Override\n//            protected String doInBackground() throws Exception{\n//                while( !Login.login_hit ){\n//                   Thread.sleep(10);\n//                   System.out.println(Login.login_hit);\n//                }\n//\n//                return String.valueOf(Login.login_hit);\n//            }\n//\n//            @Override\n//            protected void done(){\n//                if( Login.login_hit == true ){\n//                System.out.println(\"done is called\");\n//                sign_in();\n//                }\n//            }\n//        };\n//\n//        sw.execute();\n//    }\n\n//    private void sign_in(){\n//        System.out.println(\"sing is king\");\n//\n//           login.setVisible(false);\n//           login.updateUI();\n//\n//           // add components\n//           setJMenuBar(menuBar);\n//           map.setLocation(0, (int) navigaionBar.size.getHeight());\n//           navigaionBar.setLocation(0, 0);\n//           add(map);\n//           add(navigaionBar);\n//           add(controlPallete);\n//\n//           map.updateUI();\n//           navigaionBar.updateUI();\n//           controlPallete.updateUI();\n//    }\n\n    // driver code\n    public static void main(String[] args) {\n        SwingUtilities.invokeLater(new Runnable() {\n            public void run() {\n                Path_finder app = new Path_finder(800, 600);\n                //app.login();\n            }\n        });\n    }\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Path_finder.java	(revision 901e89f950d991c184769265e06cea13330aa7f0)
++++ Path_finder.java	(date 1594613832297)
+@@ -12,7 +12,7 @@
+ import java.io.IOException;
+ import java.util.*;
+ 
+-public class Path_finder extends JFrame {
++public class Path_finder extends JPanel {
+ 	public static Dimension size;
+     public static Path_finder ref;
+ 
+@@ -38,7 +38,7 @@
+         //login = new Login();
+ 
+         // add components
+-        setJMenuBar(menuBar);
++        //setJMenuBar(menuBar);
+         map.setLocation(0, (int) navigaionBar.size.getHeight());
+         navigaionBar.setLocation(0, 0);
+         add(map);
+@@ -47,11 +47,11 @@
+         
+ 
+         // Configurations
+-        setResizable(false);
+-        setTitle("Path Finder");
++        //setResizable(false);
++        //setTitle("Path Finder");
+         setSize(width, height);
+         setLayout(null);
+-        setDefaultCloseOperation(EXIT_ON_CLOSE);
++        //setDefaultCloseOperation(EXIT_ON_CLOSE);
+         setVisible(true);
+     }
+ 
+@@ -118,11 +118,22 @@
+ //           controlPallete.updateUI();
+ //    }
+ 
++
++    @Override
++    protected void paintComponent(Graphics g) {
++        super.paintComponents(g);
++        g.setColor(Color.white);
++        g.fillRect(0,0,(int)getWidth(), (int)getHeight());
++    }
++
+     // driver code
+     public static void main(String[] args) {
+         SwingUtilities.invokeLater(new Runnable() {
+             public void run() {
+-                Path_finder app = new Path_finder(800, 600);
++                JFrame app = new JFrame();
++                app.setSize(800,600);
++                app.add(new Path_finder(800,600));
++                app.setVisible(true);
+                 //app.login();
+             }
+         });
+Index: ControlPallette.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package source;\n\nimport java.awt.*;\nimport java.awt.event.*;\nimport javax.swing.*;\n\nimport javax.swing.border.*;\nimport java.awt.geom.*;\nimport java.awt.image.*;\nimport javax.imageio.*;\nimport java.io.File;\nimport java.io.IOException;\nimport java.util.*;\n\n\n\n// Representation of control pallete\nclass ControlPallette extends JPanel {\n    int box_offset;\n    Color shadow_color;\n    Color box_color;\n    int shadow_gap;\n\n    // components\n    Creator mapCreator;\n    Pallete colorPallete;\n    Cleaner mapCleaner;\n\n    int x = (int) Path_finder.size.getWidth() - 100;\n    int y = 100;\n    static Dimension size;\n\n    public ControlPallette() {\n        // Initialize\n        size = new Dimension(100, 400);\n        box_offset = 10;\n        shadow_color = new Color(50, 50, 50, 150);\n        box_color = new Color(208, 225, 47);\n        shadow_gap = 7;\n\n        // map creator\n        mapCreator = new Creator();\n        mapCreator.setLocation(20, 30);\n\n        // map cleaner\n        mapCleaner = new Cleaner();\n        mapCleaner.setLocation(20,100);\n\n        // color pallete\n        colorPallete = new Pallete();\n        colorPallete.setLocation(10, 160);\n\n        // add components\n        add(mapCreator);\n        add(mapCleaner);\n        add(colorPallete);\n\n        // configuration\n        setBounds(x, y, (int) size.getWidth(), (int) size.getHeight());\n        // setBorder(BorderFactory.createLineBorder(Color.BLACK));\n        setLayout(null);\n        setVisible(true);\n    }\n\n    // panel design\n    protected void paintComponent(Graphics g) {\n        super.paintComponent(g);\n        Graphics2D g2d = (Graphics2D) g;\n\n        // high quality\n        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);\n\n        // design\n        g2d.setColor(shadow_color);\n        g2d.fillRoundRect(box_offset + shadow_gap, box_offset + shadow_gap, (int) size.getWidth() - 2 * box_offset,\n                (int) size.getHeight() - 2 * box_offset, 20, 20);\n\n        g2d.setColor(box_color);\n        g2d.fillRoundRect(box_offset, box_offset, (int) size.getWidth() - 2 * box_offset,\n                (int) size.getHeight() - 2 * box_offset, 20, 20);\n\n        g2d.setColor(Color.BLACK);\n        g2d.drawRoundRect(box_offset, box_offset, (int) size.getWidth() - 2 * box_offset,\n                (int) size.getHeight() - 2 * box_offset, 20, 20);\n    }\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ControlPallette.java	(revision 901e89f950d991c184769265e06cea13330aa7f0)
++++ ControlPallette.java	(date 1594613409209)
+@@ -70,6 +70,10 @@
+         // high quality
+         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+ 
++        // background
++        g2d.setColor( Color.white);
++        g2d.fillRoundRect(0,0,(int)getWidth(),(int)getHeight(),20,20);
++
+         // design
+         g2d.setColor(shadow_color);
+         g2d.fillRoundRect(box_offset + shadow_gap, box_offset + shadow_gap, (int) size.getWidth() - 2 * box_offset,
+Index: Navbar.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package source;\n\nimport java.awt.*;\nimport java.awt.event.*;\nimport javax.swing.*;\n\nimport javax.swing.border.*;\nimport java.awt.geom.*;\nimport java.awt.image.*;\nimport javax.imageio.*;\nimport java.io.File;\nimport java.io.IOException;\nimport java.util.*;\n\n\n// Representation of NavBar\nclass NavBar extends JPanel {\n\n    // design properties\n    static Dimension size;\n    int shadow_gap = 10;\n    Color shadow_color;\n    Color bg;\n    int box_offset = 10;\n\n    // panel components\n    AlgoSelector algoSelector;\n    Player play;\n    Speedometer speedLevel;\n    TickButton done;\n\n\n    public NavBar() {\n        // Initialize the size\n        size = new Dimension((int) Path_finder.size.getWidth(), 60);\n        bg = new Color(255, 170, 170);\n        shadow_color = new Color(50, 50, 50, 150);\n\n        // Algo Icon\n        algoSelector = new AlgoSelector();\n        algoSelector.setLocation(30, 0);\n\n        // Play Icon\n        play = new Player();\n        play.setLocation(300, 0);\n\n        // speed icon\n        speedLevel = new Speedometer();\n        speedLevel.setLocation(400, 0);\n\n        // TickButton\n        done = new TickButton();\n        done.setLocation(650, 2);\n\n        // configuration\n        setSize((int) size.getWidth(), (int) size.getHeight());\n        setLayout(null);\n        // setBorder( BorderFactory.createLineBorder(Color.BLACK,2,true));\n\n        // add components\n        add(algoSelector);\n        add(play);\n        add(speedLevel);\n        add(done);\n\n        // add action listeners\n\n        setVisible(true);\n    }\n\n    // set design in Navbar\n    protected void paintComponent(Graphics g) {\n        Graphics2D g2d = (Graphics2D) g;\n\n        // smoothing\n        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);\n\n        // design panel\n        g2d.setColor(shadow_color);\n        g2d.fillRoundRect(box_offset + shadow_gap, 2 + shadow_gap, (int) size.getWidth() - 40,\n                (int) size.getHeight() - 10, 20, 20);\n        g2d.setColor(bg);\n        g2d.fillRoundRect(box_offset, 2, (int) size.getWidth() - 40, (int) size.getHeight() - 10, 20, 20);\n        g2d.setColor(Color.BLACK);\n        g2d.setStroke(new BasicStroke(2.0f));\n        g2d.drawRoundRect(box_offset, 2, (int) size.getWidth() - 40, (int) size.getHeight() - 10, 20, 20);\n    }\n\n\n    \n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Navbar.java	(revision 901e89f950d991c184769265e06cea13330aa7f0)
++++ Navbar.java	(date 1594613409257)
+@@ -75,6 +75,10 @@
+         // smoothing
+         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+ 
++        // background
++        g2d.setColor(Color.white);
++        g2d.fillRoundRect(0,0,(int)getWidth(), (int)getHeight(),20,20);
++
+         // design panel
+         g2d.setColor(shadow_color);
+         g2d.fillRoundRect(box_offset + shadow_gap, 2 + shadow_gap, (int) size.getWidth() - 40,
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </select>\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"580859d1-5448-4fb4-a41c-d24b55807ac5\" name=\"Default Changelist\" comment=\"removed login feature with change about section.\">\n      <change beforePath=\"$PROJECT_DIR$/MenuRibbon.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MenuRibbon.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n    <option name=\"ROOT_SYNC\" value=\"SYNC\" />\n  </component>\n  <component name=\"GithubPullRequestsUISettings\">\n    <option name=\"hiddenUrls\">\n      <set>\n        <option value=\"https://github.com/badallogical/Path_finder.git\" />\n      </set>\n    </option>\n  </component>\n  <component name=\"ProjectId\" id=\"1e4Wl8UN5M94XpVLV6PcD0Out34\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.pluginManager\" />\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"path_finder\" type=\"Application\" factoryName=\"Application\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"source.Path_finder\" />\n      <module name=\"Path_finder\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SvnConfiguration\">\n    <configuration />\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"580859d1-5448-4fb4-a41c-d24b55807ac5\" name=\"Default Changelist\" comment=\"\" />\n      <created>1593581495768</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1593581495768</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"file handling support open and save successfully\">\n      <created>1594303161458</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1594303161458</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"removed login feature.\">\n      <created>1594305929993</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1594305929993</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"removed login feature with change about section.\">\n      <created>1594306152714</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1594306152714</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"4\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"adding file_handling\" />\n    <MESSAGE value=\"file handling support open and save successfully\" />\n    <MESSAGE value=\"removed login feature.\" />\n    <MESSAGE value=\"removed login feature with change about section.\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"removed login feature with change about section.\" />\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state x=\"141\" y=\"55\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog\" timestamp=\"1593582417112\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"741\" />\n    </state>\n    <state x=\"141\" y=\"55\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741@0.27.1366.741\" timestamp=\"1593582417112\" />\n    <state x=\"911\" y=\"64\" width=\"374\" height=\"588\" key=\"#com.intellij.ide.util.MemberChooser\" timestamp=\"1594293749833\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"741\" />\n    </state>\n    <state x=\"911\" y=\"64\" width=\"374\" height=\"588\" key=\"#com.intellij.ide.util.MemberChooser/0.27.1366.741@0.27.1366.741\" timestamp=\"1594293749833\" />\n    <state width=\"1322\" height=\"164\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1594306292512\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"741\" />\n    </state>\n    <state width=\"1322\" height=\"164\" key=\"GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741\" timestamp=\"1594306292512\" />\n    <state width=\"1322\" height=\"164\" key=\"GridCell.Tab.0.center\" timestamp=\"1594306292512\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"741\" />\n    </state>\n    <state width=\"1322\" height=\"164\" key=\"GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741\" timestamp=\"1594306292512\" />\n    <state width=\"1322\" height=\"164\" key=\"GridCell.Tab.0.left\" timestamp=\"1594306292511\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"741\" />\n    </state>\n    <state width=\"1322\" height=\"164\" key=\"GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741\" timestamp=\"1594306292511\" />\n    <state width=\"1322\" height=\"164\" key=\"GridCell.Tab.0.right\" timestamp=\"1594306292512\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"741\" />\n    </state>\n    <state width=\"1322\" height=\"164\" key=\"GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741\" timestamp=\"1594306292512\" />\n    <state width=\"1322\" height=\"250\" key=\"GridCell.Tab.1.bottom\" timestamp=\"1594298506762\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"741\" />\n    </state>\n    <state width=\"1322\" height=\"250\" key=\"GridCell.Tab.1.bottom/0.27.1366.741@0.27.1366.741\" timestamp=\"1594298506762\" />\n    <state width=\"1322\" height=\"250\" key=\"GridCell.Tab.1.center\" timestamp=\"1594298506762\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"741\" />\n    </state>\n    <state width=\"1322\" height=\"250\" key=\"GridCell.Tab.1.center/0.27.1366.741@0.27.1366.741\" timestamp=\"1594298506762\" />\n    <state width=\"1322\" height=\"250\" key=\"GridCell.Tab.1.left\" timestamp=\"1594298506762\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"741\" />\n    </state>\n    <state width=\"1322\" height=\"250\" key=\"GridCell.Tab.1.left/0.27.1366.741@0.27.1366.741\" timestamp=\"1594298506762\" />\n    <state width=\"1322\" height=\"250\" key=\"GridCell.Tab.1.right\" timestamp=\"1594298506762\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"741\" />\n    </state>\n    <state width=\"1322\" height=\"250\" key=\"GridCell.Tab.1.right/0.27.1366.741@0.27.1366.741\" timestamp=\"1594298506762\" />\n    <state x=\"155\" y=\"31\" width=\"1022\" height=\"737\" key=\"SettingsEditor\" timestamp=\"1594292741963\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"741\" />\n    </state>\n    <state x=\"155\" y=\"31\" width=\"1022\" height=\"737\" key=\"SettingsEditor/0.27.1366.741@0.27.1366.741\" timestamp=\"1594292741963\" />\n    <state x=\"208\" y=\"114\" width=\"939\" height=\"574\" key=\"git4idea.branch.GitSmartOperationDialog\" timestamp=\"1593586040728\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"741\" />\n    </state>\n    <state x=\"208\" y=\"114\" width=\"939\" height=\"574\" key=\"git4idea.branch.GitSmartOperationDialog/0.27.1366.741@0.27.1366.741\" timestamp=\"1593586040728\" />\n    <state x=\"346\" y=\"89\" width=\"672\" height=\"678\" key=\"search.everywhere.popup\" timestamp=\"1593940492844\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"741\" />\n    </state>\n    <state x=\"346\" y=\"89\" width=\"672\" height=\"678\" key=\"search.everywhere.popup/0.27.1366.741@0.27.1366.741\" timestamp=\"1593940492844\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/RoadMap.java</url>\n          <line>53</line>\n          <option name=\"timeStamp\" value=\"3\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/FileHandler.java</url>\n          <line>38</line>\n          <option name=\"timeStamp\" value=\"6\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 901e89f950d991c184769265e06cea13330aa7f0)
++++ .idea/workspace.xml	(date 1594613874509)
+@@ -25,8 +25,11 @@
+     </select>
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="580859d1-5448-4fb4-a41c-d24b55807ac5" name="Default Changelist" comment="removed login feature with change about section.">
+-      <change beforePath="$PROJECT_DIR$/MenuRibbon.java" beforeDir="false" afterPath="$PROJECT_DIR$/MenuRibbon.java" afterDir="false" />
++    <list default="true" id="580859d1-5448-4fb4-a41c-d24b55807ac5" name="Default Changelist" comment="add support of exit option working.">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/ControlPallette.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPallette.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Navbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/Navbar.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Path_finder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Path_finder.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -109,7 +112,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1594306152714</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="add support of exit option working.">
++      <created>1594306690062</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1594306690062</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -129,7 +139,8 @@
+     <MESSAGE value="file handling support open and save successfully" />
+     <MESSAGE value="removed login feature." />
+     <MESSAGE value="removed login feature with change about section." />
+-    <option name="LAST_COMMIT_MESSAGE" value="removed login feature with change about section." />
++    <MESSAGE value="add support of exit option working." />
++    <option name="LAST_COMMIT_MESSAGE" value="add support of exit option working." />
+   </component>
+   <component name="WindowStateProjectService">
+     <state x="141" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593582417112">
+@@ -140,22 +151,22 @@
+       <screen x="0" y="27" width="1366" height="741" />
+     </state>
+     <state x="911" y="64" width="374" height="588" key="#com.intellij.ide.util.MemberChooser/0.27.1366.741@0.27.1366.741" timestamp="1594293749833" />
+-    <state width="1322" height="164" key="GridCell.Tab.0.bottom" timestamp="1594306292512">
++    <state width="1177" height="163" key="GridCell.Tab.0.bottom" timestamp="1594613784153">
+       <screen x="0" y="27" width="1366" height="741" />
+     </state>
+-    <state width="1322" height="164" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1594306292512" />
+-    <state width="1322" height="164" key="GridCell.Tab.0.center" timestamp="1594306292512">
++    <state width="1177" height="163" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1594613784153" />
++    <state width="1177" height="163" key="GridCell.Tab.0.center" timestamp="1594613784152">
+       <screen x="0" y="27" width="1366" height="741" />
+     </state>
+-    <state width="1322" height="164" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1594306292512" />
+-    <state width="1322" height="164" key="GridCell.Tab.0.left" timestamp="1594306292511">
++    <state width="1177" height="163" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1594613784152" />
++    <state width="1177" height="163" key="GridCell.Tab.0.left" timestamp="1594613784152">
+       <screen x="0" y="27" width="1366" height="741" />
+     </state>
+-    <state width="1322" height="164" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1594306292511" />
+-    <state width="1322" height="164" key="GridCell.Tab.0.right" timestamp="1594306292512">
++    <state width="1177" height="163" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1594613784152" />
++    <state width="1177" height="163" key="GridCell.Tab.0.right" timestamp="1594613784153">
+       <screen x="0" y="27" width="1366" height="741" />
+     </state>
+-    <state width="1322" height="164" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1594306292512" />
++    <state width="1177" height="163" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1594613784153" />
+     <state width="1322" height="250" key="GridCell.Tab.1.bottom" timestamp="1594298506762">
+       <screen x="0" y="27" width="1366" height="741" />
+     </state>

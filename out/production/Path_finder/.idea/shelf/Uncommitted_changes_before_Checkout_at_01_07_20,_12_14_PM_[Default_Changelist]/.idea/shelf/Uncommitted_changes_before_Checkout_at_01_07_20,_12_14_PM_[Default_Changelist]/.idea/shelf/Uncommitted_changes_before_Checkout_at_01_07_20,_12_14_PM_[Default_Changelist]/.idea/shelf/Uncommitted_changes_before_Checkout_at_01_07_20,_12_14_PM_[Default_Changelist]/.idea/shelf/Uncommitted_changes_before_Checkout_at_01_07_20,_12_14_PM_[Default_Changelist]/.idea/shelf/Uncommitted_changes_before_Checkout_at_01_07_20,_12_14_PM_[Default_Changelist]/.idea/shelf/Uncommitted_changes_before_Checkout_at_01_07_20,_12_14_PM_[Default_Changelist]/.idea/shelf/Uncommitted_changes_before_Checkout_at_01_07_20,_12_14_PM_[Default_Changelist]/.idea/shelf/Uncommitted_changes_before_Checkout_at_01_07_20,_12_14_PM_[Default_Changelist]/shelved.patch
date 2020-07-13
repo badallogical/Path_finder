@@ -1,0 +1,326 @@
+Index: register.java
+===================================================================
+--- register.java	(revision 7378dd9079894e83fb72ae6043c58bdeff9d1d7c)
++++ register.java	(revision 7378dd9079894e83fb72ae6043c58bdeff9d1d7c)
+@@ -1,45 +0,0 @@
+-package source;
+-
+-import source.util.*;
+-import java.awt.*;
+-import javax.swing.*;
+-
+-public class register extends JPanel{
+-    
+-    public static Dimension size;
+-    Color shadow_color;
+-    int offset = 10;
+-
+-    // components
+-    RoundJTextField name;
+-    RoundJPasswordField password;
+-    RoundJPasswordField confirm_password;
+-
+-    public register(final int width,final int height){
+-        // initialization
+-        shadow_color = new Color( 50,50,50,150);
+-        size = new Dimension( width, height );
+-        name = new RoundJTextField(200,"Name");
+-        password = new RoundJPasswordField(200, "Password");
+-        confirm_password = new RoundJPasswordField(200, "Password");
+-
+-        //add components;
+-        add( name );
+-        name.setBounds(offset + 100, offset + 50, 200, 30);
+-        name.setFont( new Font("Arial", Font.BOLD, 15));
+-        
+-        add( password );
+-        password.setBounds(offset + 100, offset + 50, 200, 30 );
+-        password.setFont( new Font("Arial", Font.BOLD, 15));
+-
+-        add( confirm_password );
+-        confirm_password.setBounds( offset + 100, offset + 50, 200, 30);
+-        confirm_password.setFont( new Font("Arial", Font.BOLD, 15));
+-
+-        setBorder( BorderFactory.createLineBorder(Color.BLUE));
+-        setLayout(null);
+-        setSize(size);
+-        setVisible(true);
+-    }
+-
+-}
+\ No newline at end of file
+Index: Login.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package source;\n\nimport source.util.*;\nimport java.awt.event.*;\nimport javax.swing.border.*;\nimport java.awt.Color;\nimport javax.swing.*;\nimport java.awt.*;\n\npublic class Login extends JPanel {\n\n    public static final Dimension size;\n    public static boolean login_hit = false;\n    Color shadow_color;\n    int offset = 10;\n\n\n    RoundJTextField user_field;\n    RoundJPasswordField passwd_field;\n    RoundJButton login_bt;\n    RoundJButton register_link;\n    \n\n    static{\n        size = new Dimension(400,400);\n    }\n\n    public Login(){\n        // Initialization\n        shadow_color = new Color(50, 50, 50, 150);\n        user_field = new RoundJTextField(200,\"User Name\");\n        passwd_field = new RoundJPasswordField(200,\"Password\");\n        login_bt = new RoundJButton(\"Login\");\n        register_link = new RoundJButton(\"Create New Accout ?\");\n       \n         \n        // add components;\n        add( user_field );\n        user_field.setBounds(offset + 100 , offset + 50, 200, 30);\n        user_field.setFont( new Font(\"Arial\", Font.BOLD, 15));\n\n        add( passwd_field);\n        passwd_field.setBounds(offset + 100, offset + 50*2 , 200 , 30);\n        passwd_field.setFont( new Font(\"Arial\", Font.BOLD, 15));\n\n        add( login_bt );\n        login_bt.setBounds(offset + 100 , offset + 50 * 4, 200, 30);\n        login_bt.setFont( new Font(\"Arial\", Font.BOLD, 15));\n\n        add( register_link );\n        register_link.setBounds(offset + 200, offset + 50 * 6, 150, 30);\n        register_link.setFont( new Font(\"Arial\", Font.BOLD, 10) );\n\n        //setBorder( BorderFactory.createLineBorder(Color.BLUE));\n        setLayout( null );\n        setSize( size );\n        setVisible(true);\n    }\n\n    public void paintComponent(Graphics g){\n        super.paintComponent(g);\n        ((Graphics2D)g).setRenderingHint( RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);\n        g.setColor( shadow_color );\n        ((Graphics2D)g).fillRoundRect(2 * offset, 2 * offset, (int)size.getWidth() - 2 * offset, (int)size.getHeight() - 2 * offset, 50, 50);\n        \n        Paint p = new GradientPaint(0.0f, 0.0f, new Color(200, 50, 100),\n        getWidth(), getHeight(), new Color(200, 50, 100), true);\n\n        ((Graphics2D)g).setPaint(p);\n        \n        ((Graphics2D)g).fillRoundRect(offset, offset, (int)size.getWidth() - 2 * offset, (int)size.getHeight() - 2 * offset, 50, 50);\n    }\n\n    \n    \n}\n\n\n\n\n\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Login.java	(revision 7378dd9079894e83fb72ae6043c58bdeff9d1d7c)
++++ Login.java	(date 1591853427162)
+@@ -11,6 +11,8 @@
+ 
+     public static final Dimension size;
+     public static boolean login_hit = false;
++    public static boolean hit = false;
++    public static boolean registeration_hit = false;
+     Color shadow_color;
+     int offset = 10;
+ 
+@@ -50,6 +52,7 @@
+         add( register_link );
+         register_link.setBounds(offset + 200, offset + 50 * 6, 150, 30);
+         register_link.setFont( new Font("Arial", Font.BOLD, 10) );
++        register_link.setActionCommand("Register");
+ 
+         //setBorder( BorderFactory.createLineBorder(Color.BLUE));
+         setLayout( null );
+Index: MenuRibbon.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package source;\n\nimport java.awt.*;\nimport java.awt.event.*;\nimport javax.swing.*;\n\nimport javax.swing.border.*;\nimport java.awt.geom.*;\nimport java.awt.image.*;\nimport javax.imageio.*;\nimport java.io.File;\nimport java.io.IOException;\nimport java.util.*;\n\n// Represent the menu bar\npublic class MenuRibbon extends JMenuBar implements ActionListener {\n\n    // File menu\n    // JMenu file;\n    // JMenuItem New, Save, exit;\n\n    // JMenu edit;\n\n    // help menu\n    JMenu help;\n    JMenuItem about;\n    \n    JMenu setting;\n    JMenu path_style;\n    JMenuItem plain;\n    JMenuItem dashed;\n\n    public MenuRibbon() {\n        // initialize\n        // file = new JMenu(\"File\");\n        // New = new JMenuItem(\"New\");\n        // Save = new JMenuItem(\"Save\");\n        // exit = new JMenuItem(\"Exit\");\n\n        // edit = new JMenu(\"Edit\");\n\n        help = new JMenu(\"Help\");\n        about = new JMenuItem(\"About\");\n        \n        setting = new JMenu(\"Setting\");\n        path_style = new JMenu(\"Path Style\");\n        plain = new JMenuItem(\"Plain\");\n        dashed = new JMenuItem(\"Dashed\");\n\n        // event listeners\n        // New.addActionListener(this);\n        // Save.addActionListener(this);\n        // exit.addActionListener(this);\n        // about\n        about.addActionListener(this);\n        \n        //line style\n        plain.addActionListener(this);\n        dashed.addActionListener(this);\n\n\n        // configuration\n        // file.add(New);\n        // file.add(Save);\n        // file.add(exit);\n\n        setting.add(path_style);\n        path_style.add(plain);\n        path_style.add(dashed);\n\n        help.add(setting);\n        help.add(about);\n        \n        \n\n        // this.add(file);\n        // this.add(edit);\n        this.add(help);\n    }\n\n    public void actionPerformed(ActionEvent e) {\n        switch (e.getActionCommand()) {\n            // case \"New\":\n            //     System.out.println(\"New\");\n            //     break;\n            // case \"Save\":\n            //     System.out.println(\"Save\");\n            //     break;\n            // case \"Exit\":\n            //     System.out.println(\"Exit\");\n\n                // break;\n            case \"Plain\":\n                Path.path_style = Path.plain_style;\n                break;\n\n            case \"Dashed\":\n                Path.path_style = Path.dashed_style;\n                break;\n\n            case \"About\":\n                AboutAction();\n                break;\n            \n        }\n    }\n\n    public static void AboutAction(){\n        JDialog aboutSection = new JDialog(Path_finder.ref, \"About\");\n        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();\n        \n        String h1 = \"Path Finder\";\n        JLabel heading = new JLabel(\"Path Finder\");\n        heading.setFont( new Font( \"Arial\", Font.BOLD, 40));\n        heading.setVisible(true);\n        heading.setBounds(100,30,300,50);\n       // heading.setBorder(BorderFactory.createLineBorder(Color.black));\n\n        aboutSection.add(heading);\n        \n        String info = \"It is a algorithmic application design to simulate the behaviour of algorithm of graphs. \"+\n        \"It's main purpose is to make other understand easily about the working of algo easily and even revise quickly after a long time with fun.\";\n\n        \n        JLabel infoLabel = new JLabel(\"<html>\" \n                +\"<h3> Version :  1.1v </h3>\"\n                +\"<h3>  Published Data : 23 May 2020 </h3>\"\n                +\"<h3> Description : </h3> \" \n                +\"<p>\" + info + \"</p>\" \n                +\"<br><h3> Developer : Badal (BCA 4th Semester) </h3>\"\n                +\"</html>\"    \n        );\n\n        infoLabel.setBounds(50,100,400,200);\n     // infoLabel.setBorder(BorderFactory.createLineBorder(Color.black));\n        aboutSection.add(infoLabel);\n        aboutSection.setLayout(null);\n        aboutSection.setLocation( screenSize.width/2 - 500/2, screenSize.height/2 - 400/2);\n        aboutSection.setSize(500,400);\n        aboutSection.setVisible(true);\n    }\n\n  \n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- MenuRibbon.java	(revision 7378dd9079894e83fb72ae6043c58bdeff9d1d7c)
++++ MenuRibbon.java	(date 1593583185694)
+@@ -16,8 +16,8 @@
+ public class MenuRibbon extends JMenuBar implements ActionListener {
+ 
+     // File menu
+-    // JMenu file;
+-    // JMenuItem New, Save, exit;
++    JMenu file;
++    JMenuItem Open, Save, exit;
+ 
+     // JMenu edit;
+ 
+@@ -32,10 +32,10 @@
+ 
+     public MenuRibbon() {
+         // initialize
+-        // file = new JMenu("File");
+-        // New = new JMenuItem("New");
+-        // Save = new JMenuItem("Save");
+-        // exit = new JMenuItem("Exit");
++        file = new JMenu("File");
++        Open = new JMenuItem("Open");
++        Save = new JMenuItem("Save");
++        exit = new JMenuItem("Exit");
+ 
+         // edit = new JMenu("Edit");
+ 
+@@ -48,9 +48,11 @@
+         dashed = new JMenuItem("Dashed");
+ 
+         // event listeners
+-        // New.addActionListener(this);
+-        // Save.addActionListener(this);
+-        // exit.addActionListener(this);
++        // file listeners
++        Open.addActionListener(this);
++        Save.addActionListener(this);
++        exit.addActionListener(this);
++
+         // about
+         about.addActionListener(this);
+         
+@@ -60,9 +62,9 @@
+ 
+ 
+         // configuration
+-        // file.add(New);
+-        // file.add(Save);
+-        // file.add(exit);
++        file.add(Open);
++        file.add(Save);
++        file.add(exit);
+ 
+         setting.add(path_style);
+         path_style.add(plain);
+@@ -73,23 +75,26 @@
+         
+         
+ 
+-        // this.add(file);
++        this.add(file);
+         // this.add(edit);
+         this.add(help);
+     }
+ 
+     public void actionPerformed(ActionEvent e) {
+         switch (e.getActionCommand()) {
+-            // case "New":
+-            //     System.out.println("New");
+-            //     break;
+-            // case "Save":
+-            //     System.out.println("Save");
+-            //     break;
+-            // case "Exit":
+-            //     System.out.println("Exit");
++             case "Open":
++                 System.out.println("Open");
++
++                 break;
+ 
+-                // break;
++             case "Save":
++                 System.out.println("Save");
++                 break;
++
++             case "Exit":
++                 System.out.println("Exit");
++                 break;
++
+             case "Plain":
+                 Path.path_style = Path.plain_style;
+                 break;
+@@ -123,8 +128,8 @@
+ 
+         
+         JLabel infoLabel = new JLabel("<html>" 
+-                +"<h3> Version :  1.1v </h3>"
+-                +"<h3>  Published Data : 23 May 2020 </h3>"
++                +"<h3> Version :  1.2v </h3>"
++                +"<h3>  Published Data : 1 July 2020 </h3>"
+                 +"<h3> Description : </h3> " 
+                 +"<p>" + info + "</p>" 
+                 +"<br><h3> Developer : Badal (BCA 4th Semester) </h3>"
+Index: Path_finder.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package source;\n\nimport java.awt.*;\nimport java.awt.event.*;\nimport javax.swing.*;\n\nimport javax.swing.border.*;\n\nimport java.awt.image.*;\nimport javax.imageio.*;\nimport java.io.File;\nimport java.io.IOException;\nimport java.util.*;\n\npublic class Path_finder extends JFrame {\n\tpublic static Dimension size;\n    public static Path_finder ref;\n\n    // components\n    static RoadMap map;\n    NavBar navigaionBar;\n    MenuRibbon menuBar;\n    ControlPallette controlPallete;\n\n    //login dashboard\n    Login login;\n\n    public Path_finder(int width, int height) {\n\n        // initialize\n        size = new Dimension(width, height);\n        map = new RoadMap();\n        navigaionBar = new NavBar();\n        menuBar = new MenuRibbon();\n        controlPallete = new ControlPallette();\n        ref = this;\n        login = new Login();\n        \n       \n\n        // configurations\n        setResizable(false);\n        setTitle(\"Path_Finder\");\n        setSize(width, height);\n        setLayout(null);\n        setDefaultCloseOperation(EXIT_ON_CLOSE);\n        setVisible(true);     \n        \n    }\n\n    private void login(){\n        add( login );\n        login.setLocation((int)(size.getWidth()/2 - login.size.getWidth()/2), (int)(size.getHeight()/2 - login.size.getHeight()/2 - 50));\n   \n        // Thread login_thread = new Thread( new Runnable(){\n        //     public void run(){\n        //         // login user\n        //         while( Login.login_pass != true ){\n        //             //System.out.println(\" \");\n        //         }\n\n        //         System.out.println(\"sign in successfull\");\n        //         ref.sign_in();\n                \n        //         login.setVisible(false);\n        //         login.updateUI();\n        //     }\n        // });\n        // login_thread.start();\n    \n            \n        SwingWorker sw = new SwingWorker(){\n            @Override\n            protected String doInBackground() throws Exception{\n                while( !Login.login_hit ){\n                   Thread.sleep(10);\n                   System.out.println(Login.login_hit);\n                }\n               \n                return String.valueOf(Login.login_hit);\n            }\n\n            @Override\n            protected void done(){\n                if( Login.login_hit == true ){\n                System.out.println(\"done is called\");\n                sign_in();\n                }\n            } \n        };\n\n        sw.execute();\n    }\n\n    private void sign_in(){\n        System.out.println(\"sing is king\");\n\n           login.setVisible(false);\n           login.updateUI();\n\n           // add components\n           setJMenuBar(menuBar);\n           map.setLocation(0, (int) navigaionBar.size.getHeight());\n           navigaionBar.setLocation(0, 0);\n           add(map);\n           add(navigaionBar);\n           add(controlPallete);\n\n           map.updateUI();\n           navigaionBar.updateUI();\n           controlPallete.updateUI();\n    }\n\n    public static void main(String[] args) {\n        SwingUtilities.invokeLater(new Runnable() {\n            public void run() {\n                Path_finder app = new Path_finder(800, 600);\n                app.login();\n            }\n        });\n    }\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Path_finder.java	(revision 7378dd9079894e83fb72ae6043c58bdeff9d1d7c)
++++ Path_finder.java	(date 1591854186649)
+@@ -72,12 +72,12 @@
+         SwingWorker sw = new SwingWorker(){
+             @Override
+             protected String doInBackground() throws Exception{
+-                while( !Login.login_hit ){
++                while( !Login.hit ){
+                    Thread.sleep(10);
+-                   System.out.println(Login.login_hit);
++                  
+                 }
+                
+-                return String.valueOf(Login.login_hit);
++                return String.valueOf(Login.hit);
+             }
+ 
+             @Override
+@@ -86,6 +86,15 @@
+                 System.out.println("done is called");
+                 sign_in();
+                 }
++                else if( Login.registeration_hit == true) {
++                    System.out.println("Registration");
++                    
++                    // Process Registration
++                    login.setVisible(false);
++                    Register reg = new Register(400,400);
++                    reg.setLocation((int)(size.getWidth()/2 - login.size.getWidth()/2), (int)(size.getHeight()/2 - login.size.getHeight()/2 - 50));
++                    add( reg );
++                }
+             } 
+         };
+ 
+Index: RoundJButton.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package source.util;\n\n\nimport source.*;\nimport java.awt.*;\nimport javax.swing.*;\nimport java.awt.event.*;\n\n\n\npublic class RoundJButton extends JButton{\n   \n    public RoundJButton( String val) {\n        setText(val);\n        setOpaque(false); // As suggested by @AVD in comment.\n        setContentAreaFilled(false);\n        setFocusPainted(true);\n        \n        addActionListener( new ActionListener(){\n            public void actionPerformed(ActionEvent e){\n                \n                if( e.getActionCommand().equals(\"Login\")){\n                    System.out.println(\"Login :\" + Login.login_hit );    \n                    Login.login_hit = true;\n                }\n            }\n        });\n    }\n\n    protected void paintComponent(Graphics g) {\n         g.setColor(getBackground());\n         g.fillRoundRect(0, 0, getWidth()-1, getHeight()-1, 50, 50);\n         super.paintComponent(g);\n    }\n\n    protected void paintBorder(Graphics g) {\n         g.setColor(getForeground());\n         g.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 50, 50);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- RoundJButton.java	(revision 7378dd9079894e83fb72ae6043c58bdeff9d1d7c)
++++ RoundJButton.java	(date 1591853506548)
+@@ -9,21 +9,49 @@
+ 
+ 
+ public class RoundJButton extends JButton{
+-   
++    
++    Color defaultBg;
++
+     public RoundJButton( String val) {
+         setText(val);
+         setOpaque(false); // As suggested by @AVD in comment.
+         setContentAreaFilled(false);
+-        setFocusPainted(true);
+-        
++        setFocusPainted(false);
++        defaultBg = getBackground();
++
+         addActionListener( new ActionListener(){
+             public void actionPerformed(ActionEvent e){
+                 
+-                if( e.getActionCommand().equals("Login")){
+-                    System.out.println("Login :" + Login.login_hit );    
+-                    Login.login_hit = true;
++                switch( e.getActionCommand() ){
++                    case "Login" :
++                        Login.login_hit = true;
++                        Login.hit = true;
++                        break;
++                    case "Register":
++                        Login.registeration_hit = true;
++                        Login.hit = true;
++                        break;
+                 }
+             }
++        });
++
++        addMouseListener( new MouseAdapter(){
++
++            @Override
++            public void mouseEntered(MouseEvent e){
++                setBackground( new Color( 255,150,150,200));
++            }
++
++            @Override
++            public void mouseExited(MouseEvent e){
++                setBackground( defaultBg );
++            }
++
++
++            @Override
++            public void mouseClicked(MouseEvent e){
++                setBackground( new Color( 255,100,100,200));
++            }
+         });
+     }
+ 
+Index: FileHandler.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- FileHandler.java	(date 1593585773272)
++++ FileHandler.java	(date 1593585773272)
+@@ -0,0 +1,24 @@
++package source.util;
++
++import java.io.File;
++
++public class FileHandler {
++
++    private File my_file;
++
++    static boolean read_file(String path){
++        // TODO : read from exiting file.
++
++
++        // Hint : please provide seprate load function to respective algorithms , to get the file data.
++    }
++
++    static boolean write( String path ){
++        //TODO: create if not exist and write.
++
++        // Hint : please provide seprate load function to respective algorithms , to get the file data.
++    }
++
++
++
++}
