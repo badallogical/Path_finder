@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="580859d1-5448-4fb4-a41c-d24b55807ac5" name="Default Changelist" comment="add support of exit option working.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControlPallette.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPallette.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Navbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/Navbar.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/badallogical/Path_finder.git" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1e4Wl8UN5M94XpVLV6PcD0Out34" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRepositories" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager">
+    <configuration name="path_finder" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="source.Path_finder" />
+      <module name="Path_finder" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="580859d1-5448-4fb4-a41c-d24b55807ac5" name="Default Changelist" comment="" />
+      <created>1593581495768</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1593581495768</updated>
+    </task>
+    <task id="LOCAL-00001" summary="file handling support open and save successfully">
+      <created>1594303161458</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594303161458</updated>
+    </task>
+    <task id="LOCAL-00002" summary="removed login feature.">
+      <created>1594305929993</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1594305929993</updated>
+    </task>
+    <task id="LOCAL-00003" summary="removed login feature with change about section.">
+      <created>1594306152714</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1594306152714</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add support of exit option working.">
+      <created>1594306690062</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1594306690062</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="adding file_handling" />
+    <MESSAGE value="file handling support open and save successfully" />
+    <MESSAGE value="removed login feature." />
+    <MESSAGE value="removed login feature with change about section." />
+    <MESSAGE value="add support of exit option working." />
+    <option name="LAST_COMMIT_MESSAGE" value="add support of exit option working." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="141" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593582417112">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="141" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741@0.27.1366.741" timestamp="1593582417112" />
+    <state x="911" y="64" width="374" height="588" key="#com.intellij.ide.util.MemberChooser" timestamp="1594293749833">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="911" y="64" width="374" height="588" key="#com.intellij.ide.util.MemberChooser/0.27.1366.741@0.27.1366.741" timestamp="1594293749833" />
+    <state width="1177" height="163" key="GridCell.Tab.0.bottom" timestamp="1594616003421">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1177" height="163" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1594616003421" />
+    <state width="1177" height="163" key="GridCell.Tab.0.center" timestamp="1594616003420">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1177" height="163" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1594616003420" />
+    <state width="1177" height="163" key="GridCell.Tab.0.left" timestamp="1594616003418">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1177" height="163" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1594616003418" />
+    <state width="1177" height="163" key="GridCell.Tab.0.right" timestamp="1594616003420">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1177" height="163" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1594616003420" />
+    <state width="1322" height="250" key="GridCell.Tab.1.bottom" timestamp="1594298506762">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1322" height="250" key="GridCell.Tab.1.bottom/0.27.1366.741@0.27.1366.741" timestamp="1594298506762" />
+    <state width="1322" height="250" key="GridCell.Tab.1.center" timestamp="1594298506762">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1322" height="250" key="GridCell.Tab.1.center/0.27.1366.741@0.27.1366.741" timestamp="1594298506762" />
+    <state width="1322" height="250" key="GridCell.Tab.1.left" timestamp="1594298506762">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1322" height="250" key="GridCell.Tab.1.left/0.27.1366.741@0.27.1366.741" timestamp="1594298506762" />
+    <state width="1322" height="250" key="GridCell.Tab.1.right" timestamp="1594298506762">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1322" height="250" key="GridCell.Tab.1.right/0.27.1366.741@0.27.1366.741" timestamp="1594298506762" />
+    <state x="155" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1594292741963">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="155" y="31" width="1022" height="737" key="SettingsEditor/0.27.1366.741@0.27.1366.741" timestamp="1594292741963" />
+    <state x="208" y="114" width="939" height="574" key="git4idea.branch.GitSmartOperationDialog" timestamp="1593586040728">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="208" y="114" width="939" height="574" key="git4idea.branch.GitSmartOperationDialog/0.27.1366.741@0.27.1366.741" timestamp="1593586040728" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1593940492844">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.27.1366.741@0.27.1366.741" timestamp="1593940492844" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RoadMap.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileHandler.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
