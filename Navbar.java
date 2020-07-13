@@ -20,7 +20,8 @@ class NavBar extends JPanel {
     static Dimension size;
     int shadow_gap = 10;
     Color shadow_color;
-    Color bg;
+    final Color bg;   // abstract bg
+    final Color bg_color = Color.white; // panel bg
     int box_offset = 10;
 
     // panel components
@@ -64,7 +65,6 @@ class NavBar extends JPanel {
         add(done);
 
         // add action listeners
-
         setVisible(true);
     }
 
@@ -74,6 +74,10 @@ class NavBar extends JPanel {
 
         // smoothing
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+        // background
+        g2d.setColor(bg_color);
+        g2d.fillRect(0,0,(int)getWidth(), (int)getHeight());
 
         // design panel
         g2d.setColor(shadow_color);

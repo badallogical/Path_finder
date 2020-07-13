@@ -25,8 +25,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="580859d1-5448-4fb4-a41c-d24b55807ac5" name="Default Changelist" comment="removed login feature with change about section.">
-      <change beforePath="$PROJECT_DIR$/MenuRibbon.java" beforeDir="false" afterPath="$PROJECT_DIR$/MenuRibbon.java" afterDir="false" />
+    <list default="true" id="580859d1-5448-4fb4-a41c-d24b55807ac5" name="Default Changelist" comment="add support of exit option working.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControlPallette.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPallette.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Navbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/Navbar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +65,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRepositories" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -109,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594306152714</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add support of exit option working.">
+      <created>1594306690062</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1594306690062</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,7 +139,8 @@
     <MESSAGE value="file handling support open and save successfully" />
     <MESSAGE value="removed login feature." />
     <MESSAGE value="removed login feature with change about section." />
-    <option name="LAST_COMMIT_MESSAGE" value="removed login feature with change about section." />
+    <MESSAGE value="add support of exit option working." />
+    <option name="LAST_COMMIT_MESSAGE" value="add support of exit option working." />
   </component>
   <component name="WindowStateProjectService">
     <state x="141" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593582417112">
@@ -140,22 +151,22 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="911" y="64" width="374" height="588" key="#com.intellij.ide.util.MemberChooser/0.27.1366.741@0.27.1366.741" timestamp="1594293749833" />
-    <state width="1322" height="164" key="GridCell.Tab.0.bottom" timestamp="1594306292512">
+    <state width="1177" height="163" key="GridCell.Tab.0.bottom" timestamp="1594616003421">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1322" height="164" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1594306292512" />
-    <state width="1322" height="164" key="GridCell.Tab.0.center" timestamp="1594306292512">
+    <state width="1177" height="163" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1594616003421" />
+    <state width="1177" height="163" key="GridCell.Tab.0.center" timestamp="1594616003420">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1322" height="164" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1594306292512" />
-    <state width="1322" height="164" key="GridCell.Tab.0.left" timestamp="1594306292511">
+    <state width="1177" height="163" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1594616003420" />
+    <state width="1177" height="163" key="GridCell.Tab.0.left" timestamp="1594616003418">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1322" height="164" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1594306292511" />
-    <state width="1322" height="164" key="GridCell.Tab.0.right" timestamp="1594306292512">
+    <state width="1177" height="163" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1594616003418" />
+    <state width="1177" height="163" key="GridCell.Tab.0.right" timestamp="1594616003420">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1322" height="164" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1594306292512" />
+    <state width="1177" height="163" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1594616003420" />
     <state width="1322" height="250" key="GridCell.Tab.1.bottom" timestamp="1594298506762">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
